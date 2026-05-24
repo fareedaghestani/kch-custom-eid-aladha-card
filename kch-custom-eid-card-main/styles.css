@@ -1,0 +1,178 @@
+:root {
+  --navy: #14213d;
+  --navy-light: #22305a;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --bg-light: #f5f7fb;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Tajawal', Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(20, 33, 61, 0.18), transparent 30%),
+    linear-gradient(135deg, #0f172a 0%, #14213d 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 28px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(20, 33, 61, 0.08);
+  animation: fadeUp 0.7s ease;
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.5px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--gold), var(--navy));
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  background: var(--bg-light);
+  font-size: 1rem;
+  color: var(--navy);
+  outline: none;
+  transition: all 0.25s ease;
+  margin-bottom: 24px;
+  font-family: 'Tajawal', Arial, sans-serif;
+}
+
+input[type="text"]::placeholder {
+  color: #64748b;
+}
+
+input[type="text"]:focus {
+  border-color: var(--gold);
+  background: #fff;
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.15);
+}
+
+button {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Tajawal', Arial, sans-serif;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+#generateBtn,
+#downloadBtn,
+#backBtn {
+  background: linear-gradient(135deg, var(--navy), #1e3a8a);
+  color: var(--white);
+  box-shadow: 0 8px 16px rgba(20, 33, 61, 0.18);
+}
+
+#generateBtn:hover,
+#downloadBtn:hover,
+#backBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(20, 33, 61, 0.24);
+}
+
+canvas {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 22px;
+  background: #fff;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: all 0.45s ease;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(20, 33, 61, 0.12);
+}
+
+.card-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#cardPage {
+  animation: fadeUp 0.5s ease;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.button-row button {
+  flex: 1;
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  .container {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row button {
+    width: 100%;
+  }
+}
